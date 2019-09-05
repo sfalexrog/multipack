@@ -9,6 +9,6 @@ docker run --rm --privileged sfalexrog/qemu-register:v4.1.0
 #popd
 
 echo "--- Building for Melodic"
-pushd melodic
+pushd melodic-builder
 docker build --rm --tag=sfalexrog/multipack:melodic .
 popd
