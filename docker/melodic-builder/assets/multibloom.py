@@ -61,7 +61,7 @@ if __name__ == '__main__':
     if len(os.sys.argv) < 2:
         print_usage()
         exit(1)
-    packages = topological_order(PATH_PREFIX + '/src')
+    packages = topological_order(PATH_PREFIX)
     if os.sys.argv[1] == 'rosdep':
         generate_rosdep(packages)
     elif os.sys.argv[1] == 'generate':
