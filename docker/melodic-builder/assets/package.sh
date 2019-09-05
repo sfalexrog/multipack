@@ -9,10 +9,12 @@ rosdep install --from-paths src --ignore-src --rosdistro melodic -y
 
 echo "--- Generatig rosdep file"
 /multibloom.py rosdep > generated_packages.yaml
+echo "--- Generated file contents:"
+cat generated_packages.yaml
 
 echo "--- Adding rosdep file to rosdep definitions"
 cp generated_packages.yaml /etc/ros/rosdep
-echo "file:///etc/ros/rosdep/generated_packages.yaml" > /etc/ros/rosdep/sources.list.d/99-generated.list
+echo "yaml file:///etc/ros/rosdep/generated_packages.yaml" > /etc/ros/rosdep/sources.list.d/99-generated.list
 
 echo "--- Updating rosdep"
 rosdep update
