@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker run -it --rm -v $(pwd):/rosbuild/src/ sfalexrog/multipack:melodic /bin/bash
+docker run --rm -v $(pwd):/rosbuild/src/ sfalexrog/multipack:melodic
 
