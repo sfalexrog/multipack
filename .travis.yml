@@ -4,11 +4,17 @@ language: generic
 services:
   - docker
 
-before_script:
-  - docker pull sfalexrog/qemu-register:v4.1.0
-  - docker run --rm --privileged sfalexrog/qemu-register:v4.1.0
-
 script:
   - pushd docker
   - ./build.sh
   - popd
+  - pushd tests
+  - ./run_tests.sh
+  - popd
+
+after_script:
+  - >
+    if [ "${TRAVIS_BRANCH}" == "master" ]; then
+      echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      docker push "sfalexrog/multipack:melodic"
+    fi
