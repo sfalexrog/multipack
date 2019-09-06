@@ -26,3 +26,8 @@ catkin build
 
 echo "--- Creating packages for distribution"
 /multibloom.py generate
+
+echo "--- Copying results to output directory"
+
+find . -iname '*.deb' -exec cp {} /output \;
+cp ./generated_packages.yaml /output
