@@ -9,5 +9,5 @@ Ever wanted to package your ROS nodes as Debian packages, but couldn't figure ou
 Run the container while mounting the directory containing your package in `/rosbuild/src`:
 
 ```bash
-docker run --rm -v /path/to/ros/packages:/rosbuild sfalexrog/multipack:melodic
+docker run --rm -v /path/to/ros/packages:/rosbuild/src -v /path/to/binary/packages:/output sfalexrog/multipack:melodic
 ```
