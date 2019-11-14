@@ -4,9 +4,18 @@ language: generic
 services:
   - docker
 
+env:
+  - ROS_DISTRO=kinetic
+  - ROS_DISTRO=melodic
+
+before_script:
+  - docker run --rm --privileged sfalexrog/qemu-register:v4.1.0
+
 script:
   - pushd docker
-  - ./build.sh
+  - pushd ${ROS_DISTRO}-builder
+  - docker build --rm --tag=sfalexrog/multipack:${ROS_DISTRO} .
+  - popd
   - popd
   - pushd tests
   - ./run_tests.sh
@@ -16,5 +25,5 @@ after_script:
   - >
     if [ "${TRAVIS_BRANCH}" == "master" ]; then
       echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      docker push "sfalexrog/multipack:melodic"
+      docker push "sfalexrog/multipack:${ROS_DISTRO}"
     fi

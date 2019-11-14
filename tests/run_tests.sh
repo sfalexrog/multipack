@@ -1,4 +1,3 @@
 #!/bin/bash
 
-docker run --rm -v $(pwd):/rosbuild/src/ -v $(pwd)/output:/output sfalexrog/multipack:melodic
-
+docker run --rm -v $(pwd):/rosbuild/src/ -v $(pwd)/output:/output sfalexrog/multipack:${ROS_DISTRO}
