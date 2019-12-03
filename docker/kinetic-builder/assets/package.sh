@@ -2,6 +2,9 @@
 
 set -e
 
+echo "--- Setting up environment"
+export DEB_BUILD_OPTIONS="parallel=$(nproc)"
+
 cd /rosbuild
 echo "--- Installing dependencies"
 apt-get update
