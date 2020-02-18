@@ -12,3 +12,8 @@ echo "--- Building for Melodic"
 pushd melodic-builder
 docker build --rm --tag=sfalexrog/multipack:melodic .
 popd
+
+echo "--- Building for Melodic-python3"
+pushd melodic-py3-builder
+docker build --rm --tag=sfalexrog/multipack:melodic-py3 .
+popd
