@@ -16,7 +16,7 @@ before_script:
   - if [ "${TRAVIS_CPU_ARCH}" = "amd64" ]; then 
       docker run --rm --privileged sfalexrog/qemu-register:v4.1.0;
     fi
-  - docker pull sfalexrog/multipack:${ROS_DISTRO}
+  - docker pull sfalexrog/multipack:${ROS_DISTRO} || true
 
 script:
   - pushd docker
