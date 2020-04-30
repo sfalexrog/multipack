@@ -35,6 +35,9 @@ def generate_package(package):
                               '--ros-distro',
                               'melodic'])
     print('Done; result is %d' % result)
+    if package[0] == 'catkin':
+        print('--- Special rules for catkin: patching debian/rules...')
+        patch_rules()
     print('Creating package for %s' % package[0])
     result = subprocess.call(['fakeroot',
                               'debian/rules',

@@ -22,10 +22,10 @@ echo "yaml file:///etc/ros/rosdep/generated_packages.yaml" > /etc/ros/rosdep/sou
 echo "--- Updating rosdep"
 rosdep update
 
-echo "--- Building and installing packages locally"
-catkin init
-catkin config --install --install-space /opt/ros/melodic
-catkin build
+#echo "--- Building and installing packages locally"
+#catkin init
+#catkin config --install --install-space /opt/ros/melodic
+#catkin build
 
 echo "--- Creating packages for distribution"
 /multibloom.py generate
