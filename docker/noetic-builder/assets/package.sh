@@ -8,7 +8,7 @@ export DEB_BUILD_OPTIONS="parallel=$(nproc)"
 cd /rosbuild
 echo "--- Installing dependencies"
 apt-get update
-rosdep install --from-paths src --ignore-src --rosdistro melodic -y
+rosdep install --from-paths src --ignore-src --rosdistro noetic -y
 
 echo "--- Generatig rosdep file"
 /multibloom.py rosdep > generated_packages.yaml
