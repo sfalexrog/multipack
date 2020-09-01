@@ -4,6 +4,7 @@ set -e
 
 echo "--- Setting up environment"
 export DEB_BUILD_OPTIONS="parallel=$(nproc)"
+echo "APT::Acquire::Retries \"3\";" > /etc/apt/apt.conf.d/80-retries
 
 cd /rosbuild
 echo "--- Installing dependencies"
