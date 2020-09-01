@@ -7,7 +7,7 @@ import sys
 import subprocess
 import fileinput
 
-ROS_VERSION = 'melodic'
+ROS_VERSION = 'noetic'
 PATH_PREFIX = os.path.abspath('') + '/src/'
 
 
@@ -33,7 +33,7 @@ def generate_package(package):
                               '--os-version',
                               'buster',
                               '--ros-distro',
-                              'melodic'])
+                              'noetic'])
     print('Done; result is %d' % result)
     if package[0] == 'catkin':
         print('--- Special rules for catkin: patching debian/rules...')
