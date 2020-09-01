@@ -4,18 +4,15 @@ language: generic
 services:
   - docker
 arch:
-  - amd64
   - arm64
 
 env:
   - ROS_DISTRO=kinetic
   - ROS_DISTRO=melodic
   - ROS_DISTRO=melodic-py3
+  - ROS_DISTRO=noetic
 
 before_script:
-  - if [ "${TRAVIS_CPU_ARCH}" = "amd64" ]; then 
-      docker run --rm --privileged sfalexrog/qemu-register:v4.1.0;
-    fi
   - docker pull sfalexrog/multipack:${ROS_DISTRO} || true
 
 script:
@@ -30,7 +27,7 @@ script:
 
 after_script:
   - >
-    if [ "${TRAVIS_BRANCH}" = "master" ] && [ "${TRAVIS_CPU_ARCH}" = "amd64" ]; then
+    if [ "${TRAVIS_BRANCH}" = "master" ]; then
       echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       docker push "sfalexrog/multipack:${ROS_DISTRO}"
     fi
