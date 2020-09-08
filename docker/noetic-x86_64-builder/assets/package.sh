@@ -6,6 +6,10 @@ echo "--- Setting up environment"
 export DEB_BUILD_OPTIONS="parallel=$(nproc)"
 echo "APT::Acquire::Retries \"3\";" > /etc/apt/apt.conf.d/80-retries
 
+echo "--- Initializing rosdep"
+rosdep init
+rosdep update
+
 cd /rosbuild
 echo "--- Installing dependencies"
 apt-get update
