@@ -22,3 +22,9 @@ echo "--- Building for Noetic"
 pushd noetic-builder
 docker build --rm --tag=sfalexrog/multipack:noetic .
 popd
+
+echo "--- Building for Noetic (x86_64)"
+pushd noetic-x86_64-builder
+docker build --rm --tag=sfalexrog/multipack:noetic-x86_64 .
+popd
+

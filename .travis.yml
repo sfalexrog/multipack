@@ -12,6 +12,11 @@ env:
   - ROS_DISTRO=melodic-py3
   - ROS_DISTRO=noetic
 
+jobs:
+  include:
+    - arch: amd64
+      env: ROS_DISTRO=noetic-x86_64
+
 before_script:
   - docker pull sfalexrog/multipack:${ROS_DISTRO} || true
 
