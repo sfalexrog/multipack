@@ -56,8 +56,8 @@ def generate_rosdep(package_list):
     for package in package_list:
         rosified_name = rosify(package[1].name)
         print("%s:" % package[1].name)
-        print("  debian:")
-        print("    buster: [%s]" % rosified_name)
+        print("  ubuntu:")
+        print("    focal: [%s]" % rosified_name)
 
 
 def print_usage():
